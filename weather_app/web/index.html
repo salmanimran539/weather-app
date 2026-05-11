@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WeatherScope</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Professional weekly weather intelligence</p>
+          <h1>WeatherScope</h1>
+          <p class="subcopy">Live conditions, seven-day prediction, and a planning engine that turns weather into better decisions.</p>
+          <form class="search" id="searchForm">
+            <label class="sr-only" for="cityInput">City</label>
+            <input id="cityInput" name="city" type="search" value="Lahore" autocomplete="address-level2" placeholder="Search city">
+            <button type="submit">Search</button>
+          </form>
+        </div>
+        <div class="weather-visual" aria-hidden="true">
+          <div class="sun"></div>
+          <div class="cloud cloud-one"></div>
+          <div class="cloud cloud-two"></div>
+          <div class="rain rain-one"></div>
+          <div class="rain rain-two"></div>
+          <div class="city-line"></div>
+        </div>
+      </section>
+
+      <section class="current-grid" aria-live="polite">
+        <article class="current-panel">
+          <div>
+            <p class="section-kicker">Current weather</p>
+            <h2 id="location">Loading...</h2>
+            <p id="condition" class="condition">Checking the sky</p>
+          </div>
+          <div class="temperature" id="temperature">-- C</div>
+          <div class="metrics">
+            <div>
+              <span>Feels like</span>
+              <strong id="feelsLike">-- C</strong>
+            </div>
+            <div>
+              <span>Humidity</span>
+              <strong id="humidity">--%</strong>
+            </div>
+            <div>
+              <span>Wind</span>
+              <strong id="wind">-- km/h</strong>
+            </div>
+          </div>
+        </article>
+
+        <article class="planner-panel">
+          <p class="section-kicker">Life Weather Planner</p>
+          <h2 id="plannerTitle">Finding the best day</h2>
+          <p id="plannerSummary">The planner reads comfort, rain, UV, wind, and humidity together.</p>
+          <div class="planner-actions">
+            <button type="button" data-plan="outdoor" class="active">Outdoor</button>
+            <button type="button" data-plan="commute">Commute</button>
+            <button type="button" data-plan="laundry">Laundry</button>
+          </div>
+          <p class="planner-result" id="plannerResult">Forecast intelligence will appear here.</p>
+        </article>
+      </section>
+
+      <section class="forecast-section">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Seven-day prediction</p>
+            <h2>Week ahead</h2>
+          </div>
+          <p id="updatedAt">Updated --</p>
+        </div>
+        <div class="forecast-grid" id="forecastGrid"></div>
+      </section>
+
+      <section class="world-section">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Worldwide live weather</p>
+            <h2>Global cities</h2>
+          </div>
+          <p>Live updates from Open-Meteo</p>
+        </div>
+        <div class="world-grid" id="worldGrid"></div>
+      </section>
+
+      <section class="insights">
+        <article>
+          <span class="insight-label">Best comfort</span>
+          <strong id="bestDay">--</strong>
+          <p id="bestDayText">--</p>
+        </article>
+        <article>
+          <span class="insight-label">Rain watch</span>
+          <strong id="rainDay">--</strong>
+          <p id="rainDayText">--</p>
+        </article>
+        <article>
+          <span class="insight-label">Source</span>
+          <strong id="source">--</strong>
+          <p>Live data uses Open-Meteo. No demo weather is displayed.</p>
+        </article>
+      </section>
+    </main>
+
+    <script src="app.js?v=openweather-api-key"></script>
+  </body>
+</html>
